@@ -41,10 +41,21 @@ set scrolloff=8
 
 set laststatus=2
 
-" netrw tweaks
-let g:netrw_banner=0       " disable banner
-let g:netrw_liststyle=3    " tree view
+" Netrw opts
+let g:netrw_banner=0 " Disable banner
+
+" Cursor opts
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
+
+let &t_SI = "\e[6 q" " Insert mode
+let &t_EI = "\e[2 q" " Normal mode
+let &t_SR = "\e[4 q" " Replace mode
    
+set termguicolors
+colorscheme vague
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -64,10 +75,8 @@ function! s:ensure(repo)
     execute 'set runtimepath+=' . fnameescape(path)
 endfunction
 
-call s:ensure('ghifarit53/tokyonight-vim')
 call s:ensure('junegunn/fzf')
 call s:ensure('junegunn/fzf.vim')
-call s:ensure('tomasiser/vim-code-dark')
 call s:ensure('yegappan/lsp')
 call s:ensure('ojroques/vim-oscyank')
 call s:ensure('tpope/vim-commentary')
@@ -117,7 +126,6 @@ map <leader>z <Cmd>e ~/.config/zsh/.zshrc<CR>
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fo :History<CR>
 nnoremap <leader>fb :Buffers<CR>
-
 nnoremap <leader>fg :Rg<Space>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,13 +170,3 @@ autocmd User LspSetup call LspOptionsSet(#{
     \   diagSignInfoText: '»',
     \   diagSignHintText: '⚑',
     \ })
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => COLORS
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-set termguicolors
-
-let g:tokyonight_style = 'night' " night/storm
-let g:tokyonight_enable_italic = 1
-
-colorscheme tokyonight
