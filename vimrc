@@ -41,6 +41,8 @@ set scrolloff=8
 
 set laststatus=2
 
+set clipboard=unnamedplus
+
 " Netrw opts
 let g:netrw_banner=0 " Disable banner
 
@@ -123,10 +125,16 @@ map <leader>v <Cmd>edit $MYVIMRC<CR>
 map <leader>z <Cmd>e ~/.config/zsh/.zshrc<CR>
 
 " Mini telescope
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fo :History<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fg :Rg<Space>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>h :History<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<Space>
+
+" Copy Paste
+nnoremap y "+y
+vnoremap y "+y
+nnoremap p "+p
+vnoremap p "+p
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => LSP
