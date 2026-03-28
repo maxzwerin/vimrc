@@ -6,7 +6,6 @@
 " 
 " need to install: vim, ripgrep, fd, fzf
 "
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,27 +20,20 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set smartindent
-
 set ignorecase
 set smartcase
 set incsearch
-
 set background=dark
 set signcolumn=yes
-
 set splitbelow
 set splitright
-
 set iskeyword+=-
-
 set path+=**
 set wildmenu
-
 set scrolloff=8
-
 set laststatus=2
-
 set clipboard=unnamedplus
+set nowrap
 
 " Netrw opts
 let g:netrw_banner=0 " Disable banner
@@ -80,8 +72,9 @@ endfunction
 call s:ensure('junegunn/fzf')
 call s:ensure('junegunn/fzf.vim')
 call s:ensure('yegappan/lsp')
-call s:ensure('ojroques/vim-oscyank')
 call s:ensure('tpope/vim-commentary')
+call s:ensure('tpope/vim-surround')
+call s:ensure('maxzwerin/vim-mash')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => KEYBINDS
@@ -98,6 +91,10 @@ nnoremap <leader>e :Ex<CR>
 " Tab stuff
 nnoremap <leader>t <Cmd>tabnew<CR>
 nnoremap <leader>x <Cmd>tabclose<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
+inoremap <C-l> <ESC>:tabnext<CR>
+inoremap <C-h> <ESC>:tabprevious<CR>
 
 " Centered search :)
 nnoremap <C-d> <C-d>zz
@@ -110,12 +107,6 @@ map <leader>n :norm
 
 " Avoid accidental Q
 nnoremap Q <nop>
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -135,6 +126,7 @@ nnoremap y "+y
 vnoremap y "+y
 nnoremap p "+p
 vnoremap p "+p
+map Y y$
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => LSP
