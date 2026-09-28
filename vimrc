@@ -3,9 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " this is a basic vimrc. it's a single file with
 " minimal plugins and it's got everything i need.
-" 
-" need to install: vim, ripgrep, fd, fzf
-"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,7 +21,6 @@ set smartindent
 set ignorecase
 set smartcase
 set incsearch
-set background=dark
 set signcolumn=yes
 set splitbelow
 set splitright
@@ -69,12 +66,9 @@ function! s:ensure(repo)
     execute 'set runtimepath+=' . fnameescape(path)
 endfunction
 
-call s:ensure('junegunn/fzf')
-call s:ensure('junegunn/fzf.vim')
 call s:ensure('yegappan/lsp')
 call s:ensure('tpope/vim-commentary')
 call s:ensure('tpope/vim-surround')
-call s:ensure('maxzwerin/vim-mash')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " => KEYBINDS
@@ -84,17 +78,20 @@ let mapleader = " "
 " Fast write, quit, source, file explorer
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>o :so<CR>
 nnoremap <leader>O :source $MYVIMRC<CR>
 nnoremap <leader>e :Ex<CR>
 
 " Tab stuff
-nnoremap <leader>t <Cmd>tabnew<CR>
-nnoremap <leader>x <Cmd>tabclose<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
 inoremap <C-l> <ESC>:tabnext<CR>
 inoremap <C-h> <ESC>:tabprevious<CR>
+
+nnoremap <leader>r :make!<CR>
+nnoremap <leader>R :set makeprg=
+nnoremap <leader>o :copen<CR>
+nnoremap <leader>x :cclose<CR>
+nnoremap <leader>c :!ctags -R .<CR>
 
 " Centered search :)
 nnoremap <C-d> <C-d>zz
@@ -112,14 +109,9 @@ nnoremap Q <nop>
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Getting to files fast
+nnoremap <leader>f :find 
 map <leader>v <Cmd>edit $MYVIMRC<CR>
 map <leader>z <Cmd>e ~/.config/zsh/.zshrc<CR>
-
-" Mini telescope
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>h :History<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>g :Rg<Space>
 
 " Copy Paste
 nnoremap y "+y

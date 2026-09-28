@@ -1,21 +1,23 @@
 " Name:         vague
 " Description:  A cool, dark, low contrast colorscheme. Pastel yet vivid, like a fleeting memory... 
-" Maintainer:   skewb1k <skewb1kunix@gmail.com>
+" Maintainer:   Artem Krinitsyn <arkriny@gmail.com>
 " URL:          https://github.com/vague-theme/vague.vim
 " License:      MIT
 
 set background=dark
+
 hi clear
 if exists('syntax on')
-    syntax reset
+  syntax reset
 endif
-let g:colors_name='vague'
 
-let g:terminal_ansi_colors = ['#252530', '#d8647e', '#7fa563', '#f3be7c', '#6e94b2', '#bb9dbd', '#aeaed1', '#cdcdcd', '#606079', '#e08398', '#99b782', '#f5cb96', '#8ba9c1', '#c9b1ca', '#bebeda', '#d7d7d7']
+let g:colors_name='vague'
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
   finish " Only gui is supported
 endif
+
+let g:terminal_ansi_colors = ['#252530', '#d8647e', '#7fa563', '#f3be7c', '#6e94b2', '#bb9dbd', '#aeaed1', '#cdcdcd', '#606079', '#e08398', '#99b782', '#f5cb96', '#8ba9c1', '#c9b1ca', '#bebeda', '#d7d7d7']
 
 hi Added cterm=NONE gui=NONE guifg=#7fa563 guibg=NONE guisp=NONE
 hi Boolean cterm=bold gui=bold guifg=#e0a363 guibg=NONE guisp=NONE
@@ -29,7 +31,6 @@ hi CursorColumn cterm=NONE gui=NONE guifg=NONE guibg=#252530 guisp=NONE
 hi CursorLine cterm=NONE gui=NONE guifg=NONE guibg=#252530 guisp=NONE
 hi CursorLineNr cterm=NONE gui=NONE guifg=#cdcdcd guibg=NONE guisp=NONE
 hi Debug cterm=NONE gui=NONE guifg=#aeaed1 guibg=NONE guisp=NONE
-hi Define cterm=NONE gui=NONE guifg=#606079 guibg=NONE guisp=NONE
 hi Delimiter cterm=NONE gui=NONE guifg=#cdcdcd guibg=NONE guisp=NONE
 hi DiffAdd cterm=NONE gui=NONE guifg=NONE guibg=#293125 guisp=NONE
 hi DiffChange cterm=NONE gui=NONE guifg=NONE guibg=#41362a guisp=NONE
@@ -46,23 +47,19 @@ hi Ignore cterm=NONE gui=NONE guifg=#cdcdcd guibg=#141415 guisp=NONE
 hi IncSearch cterm=NONE gui=NONE guifg=#141415 guibg=#405065 guisp=NONE
 hi Include cterm=NONE gui=NONE guifg=#6e94b2 guibg=NONE guisp=NONE
 hi LineNr cterm=NONE gui=NONE guifg=#606079 guibg=NONE guisp=NONE
-hi MatchParen cterm=NONE gui=NONE guifg=#cdcdcd guibg=#333738 guisp=NONE
+hi MatchParen cterm=bold gui=bold guifg=NONE guibg=#333738 guisp=NONE
 hi ModeMsg cterm=NONE gui=NONE guifg=#e8b589 guibg=NONE guisp=NONE
 hi MoreMsg cterm=bold gui=bold guifg=#c48282 guibg=NONE guisp=NONE
 hi NonText cterm=NONE gui=NONE guifg=#606079 guibg=NONE guisp=NONE
-hi Normal cterm=NONE gui=NONE guifg=#cdcdcd guibg=#282a36 guisp=NONE
+hi Normal cterm=NONE gui=NONE guifg=#cdcdcd guibg=#141415 guisp=NONE
 hi Number cterm=NONE gui=NONE guifg=#e0a363 guibg=NONE guisp=NONE
 hi Operator cterm=NONE gui=NONE guifg=#90a0b5 guibg=NONE guisp=NONE
-hi Pmenu cterm=NONE gui=NONE guifg=#cdcdcd guibg=NONE guisp=NONE
-hi PmenuBorder cterm=NONE gui=NONE guifg=#878787 guibg=NONE guisp=NONE
-hi PmenuMatch cterm=bold gui=bold guifg=NONE guibg=NONE guisp=NONE
-hi PmenuMatchSel cterm=bold gui=bold guifg=NONE guibg=NONE guisp=NONE
-hi PmenuSbar cterm=NONE gui=NONE guifg=#cdcdcd guibg=NONE guisp=NONE
-hi PmenuSel cterm=undercurl gui=undercurl guifg=#aeaed1 guibg=#252530 guisp=NONE
+hi Pmenu cterm=NONE gui=NONE guifg=#cdcdcd guibg=#252530 guisp=NONE
+hi PmenuSbar cterm=NONE gui=NONE guifg=#cdcdcd guibg=#252530 guisp=NONE
+hi PmenuSel cterm=NONE gui=NONE guifg=#252530 guibg=#cdcdcd guisp=NONE
 hi PmenuShadow cterm=NONE gui=NONE guifg=NONE guibg=#333738 guisp=NONE
 hi PmenuThumb cterm=NONE gui=NONE guifg=NONE guibg=#606079 guisp=NONE
-hi PreCondit cterm=NONE gui=NONE guifg=#606079 guibg=NONE guisp=NONE
-hi Preproc cterm=NONE gui=NONE guifg=#aeaed1 guibg=NONE guisp=NONE
+hi PreProc cterm=NONE gui=NONE guifg=#6e94b2 guibg=NONE guisp=NONE
 hi Question cterm=NONE gui=NONE guifg=#aeaed1 guibg=NONE guisp=NONE
 hi QuickFixLine cterm=NONE gui=NONE guifg=NONE guibg=#1c1c24 guisp=NONE
 hi Removed cterm=NONE gui=NONE guifg=#d8647e guibg=NONE guisp=NONE
@@ -84,9 +81,8 @@ hi StatusLineTermNC cterm=NONE gui=NONE guifg=#606079 guibg=NONE guisp=NONE
 hi StorageClass cterm=NONE gui=NONE guifg=#aeaed1 guibg=NONE guisp=NONE
 hi String cterm=italic gui=italic guifg=#e8b589 guibg=NONE guisp=NONE
 hi Structure cterm=NONE gui=NONE guifg=#aeaed1 guibg=NONE guisp=NONE
-hi TabLine cterm=NONE gui=NONE guifg=NONE guibg=#1c1c24 guisp=NONE
-hi TabLineFill cterm=NONE gui=NONE guifg=NONE guibg=#1c1c24 guisp=NONE
-hi TabLineSel cterm=NONE gui=NONE guifg=#1c1c24 guibg=#cdcdcd guisp=NONE
+hi TabLine cterm=NONE gui=NONE guifg=#606079 guibg=#1c1c24 guisp=NONE
+hi TabLineFill cterm=NONE gui=NONE guifg=#606079 guibg=#1c1c24 guisp=NONE
 hi Title cterm=NONE gui=NONE guifg=#c3c3d5 guibg=NONE guisp=NONE
 hi Todo cterm=italic gui=italic guifg=#c48282 guibg=NONE guisp=NONE
 hi Type cterm=NONE gui=NONE guifg=#9bb4bc guibg=NONE guisp=NONE
